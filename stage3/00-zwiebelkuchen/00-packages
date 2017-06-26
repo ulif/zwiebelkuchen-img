@@ -1,0 +1,6 @@
+unattended-upgrades
+rng-tools
+hostapd
+isc-dhcp-server
+iptables-persistent
+tor
