@@ -1,10 +1,33 @@
-# pi-gen
-
-_Tool used to create the raspberrypi.org Raspbian images_
+This is a fork of `pi_gen` by [@RPI-Distro](https://github.com/RPi-Distro/pi-gen).
 
 
-### TODO
-1. Documentation
+# zwiebelkuchen
+
+_Tool used to create an onion-pi image based on raspberrypi.org Raspbian images_
+
+`zwiebelkuchen` is a raspberrypi-3 device acting as a wireless repeater, that
+routes all traffic through `tor`.
+
+
+## Building your own
+The `zwiebelkucen` image is built with the same script that generates the
+official [Raspbian](https://www.raspberrypi.org/downloads/raspbian/) image's
+from the [Raspberry Pi Foundation](https://www.raspberrypi.org/about/).
+
+Since this image is based on
+[Raspbian](https://www.raspberrypi.org/downloads/raspbian/) it keeps the
+default password and username from
+[Raspbian](https://www.raspberrypi.org/downloads/raspbian/). Default user for
+use locally or over ssh is `pi` and the password is `raspberry`.
+
+Build instructions:
+- Install git. `sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get install git`
+- Clone the `rpi_gen` code. `git clone https://github.com/ulif/pi-gen.git`
+- Create a file in the current folder named `config`. More about it's contents below.
+- Run the build script, with sudo or as root.  `sudo ./build.sh` OR
+- if you have `docker` installed,  you can run , as regular user, `./build-docker.sh`
+- Wait ~30 minutes for build to complete.
+- Retrieve your freshly built Raspberry Pi image from the `rpi_gen\deploy` folder.
 
 
 ## Dependencies
