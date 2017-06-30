@@ -8,6 +8,8 @@ _Tool used to create an onion-pi image based on raspberrypi.org Raspbian images_
 `zwiebelkuchen` is a raspberrypi-3 device acting as a wireless repeater, that
 routes all traffic through `tor`.
 
+It is built for raspberry-3 only and requires an additional wifi-dongle to operate.
+
 
 ## Building your own
 The `zwiebelkucen` image is built with the same script that generates the
