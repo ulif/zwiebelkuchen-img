@@ -2,3 +2,4 @@
 02-default-isc-dhcp-server.diff
 03-interfaces.diff
 04-default-hostapd.diff
+05-torrc.diff
