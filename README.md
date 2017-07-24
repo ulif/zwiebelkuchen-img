@@ -12,7 +12,7 @@ It is built for raspberry-3 only and requires an additional wifi-dongle to opera
 
 
 ## Building your own
-The `zwiebelkucen` image is built with the same script that generates the
+The `zwiebelkuchen` image is built with the same script that generates the
 official [Raspbian](https://www.raspberrypi.org/downloads/raspbian/) image's
 from the [Raspberry Pi Foundation](https://www.raspberrypi.org/about/).
 
