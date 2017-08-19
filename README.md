@@ -38,7 +38,7 @@ On Debian-based systems:
 
 ```bash
 apt-get install quilt parted realpath qemu-user-static debootstrap zerofree pxz zip \
-dosfstools bsdtar libcap2-bin grep rsync
+dosfstools bsdtar libcap2-bin grep rsync xz-utils
 ```
 
 The file `depends` contains a list of tools needed.  The format of this
@@ -157,11 +157,11 @@ maintenance and allows for more easy customization.
    standard console hardware permission groups.
 
    There are a few tools that may not make a whole lot of sense here for
-   development purposes on a minimal system such as basic python and lua
+   development purposes on a minimal system such as basic Python and Lua
    packages as well as the `build-essential` package.  They are lumped right
    in with more essential packages presently, though they need not be with
    pi-gen.  These are understandable for Raspbian's target audience, but if
-   you were looking for something between truly minimal and Raspbian-lite,
+   you were looking for something between truly minimal and Raspbian-Lite,
    here's where you start trimming.
 
  - **Stage 3** - desktop system.  Here's where you get the full desktop system
