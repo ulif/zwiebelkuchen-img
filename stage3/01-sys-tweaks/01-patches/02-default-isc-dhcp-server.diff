@@ -2,9 +2,11 @@ Index: b/rootfs/etc/default/isc-dhcp-server
 ===================================================================
 --- a/rootfs/etc/default/isc-dhcp-server
 +++ b/rootfs/etc/default/isc-dhcp-server
-@@ -18,4 +18,4 @@
+@@ -14,5 +14,5 @@
  
  # On what interfaces should the DHCP server (dhcpd) serve DHCP requests?
  #	Separate multiple interfaces with spaces, e.g. "eth0 eth1".
--INTERFACES=""
-+INTERFACES="wlan1"
+-INTERFACESv4=""
+-INTERFACESv6=""
++INTERFACESv4="wlan1"
++INTERFACESv6="wlan1"
