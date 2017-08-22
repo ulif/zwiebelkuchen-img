@@ -2,8 +2,8 @@ Index: b/rootfs/etc/dhcp/dhcpd.conf
 ===================================================================
 --- a/rootfs/etc/dhcp/dhcpd.conf
 +++ b/rootfs/etc/dhcp/dhcpd.conf
-@@ -10,15 +10,15 @@
- ddns-update-style none;
+@@ -4,8 +4,8 @@
+ #
  
  # option definitions common to all supported networks...
 -option domain-name "example.org";
@@ -13,6 +13,7 @@ Index: b/rootfs/etc/dhcp/dhcpd.conf
  
  default-lease-time 600;
  max-lease-time 7200;
+@@ -18,7 +18,7 @@ ddns-update-style none;
  
  # If this DHCP server is the official DHCP server for the local
  # network, the authoritative directive should be uncommented.
@@ -21,7 +22,7 @@ Index: b/rootfs/etc/dhcp/dhcpd.conf
  
  # Use this to send dhcp log messages to a different log file (you also
  # have to hack syslog.conf to complete the redirection).
-@@ -57,6 +57,18 @@
+@@ -57,6 +57,18 @@ ddns-update-style none;
  #  max-lease-time 7200;
  #}
  
