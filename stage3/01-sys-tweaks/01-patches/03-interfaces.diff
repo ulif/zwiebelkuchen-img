@@ -2,12 +2,14 @@ Index: b/rootfs/etc/network/interfaces
 ===================================================================
 --- a/rootfs/etc/network/interfaces
 +++ b/rootfs/etc/network/interfaces
-@@ -16,5 +16,6 @@
-     wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
+@@ -3,5 +3,10 @@
+ # Please note that this file is written to be used with dhcpcd
+ # For static IP, consult /etc/dhcpcd.conf and 'man dhcpcd.conf'
  
- allow-hotplug wlan1
--iface wlan1 inet manual
--    wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
++allow-hotplug wlan1
 +iface wlan1 inet static
-+    address 192.168.42.1
-+    netmask 255.255.255.0
++     address 192.168.42.1
++     netmask 255.255.255.0
++
+ # Include files from /etc/network/interfaces.d:
+ source-directory /etc/network/interfaces.d
