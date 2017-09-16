@@ -1,12 +1,11 @@
-Index: b/rootfs/etc/tor/torrc
+Index: stage3/rootfs/etc/tor/torrc
 ===================================================================
---- a/rootfs/etc/tor/torrc
-+++ b/rootfs/etc/tor/torrc
-@@ -12,6 +12,16 @@
+--- stage3.orig/rootfs/etc/tor/torrc
++++ stage3/rootfs/etc/tor/torrc
+@@ -12,6 +12,15 @@
  ## Tor will look for this file in various places based on your platform:
  ## https://www.torproject.org/docs/faq#torrc
  
-+
 +Log notice file /var/log/tor/notices.log
 +VirtualAddrNetwork 10.192.0.0/10
 +AutomapHostsSuffixes .onion,.exit
@@ -16,6 +15,6 @@ Index: b/rootfs/etc/tor/torrc
 +DNSPort 53
 +DNSListenAddress 192.168.42.1
 +
- ## Tor opens a socks proxy on port 9050 by default -- even if you don't
- ## configure one below. Set "SocksPort 0" if you plan to run Tor only
+ ## Tor opens a SOCKS proxy on port 9050 by default -- even if you don't
+ ## configure one below. Set "SOCKSPort 0" if you plan to run Tor only
  ## as a relay, and not make any local application connections yourself.
