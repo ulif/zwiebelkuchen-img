@@ -34,7 +34,11 @@ Build instructions:
 
 ## Dependencies
 
-On Debian-based systems:
+pi-gen runs on Debian based operating systems. Currently it is only supported on
+either Debian Stretch or Ubuntu Xenial and is known to have issues building on
+earlier releases of these systems.
+
+To install the required dependencies for pi-gen you should run:
 
 ```bash
 apt-get install quilt parted realpath qemu-user-static debootstrap zerofree pxz zip \
@@ -103,6 +107,48 @@ A simple example for building Raspbian:
 ```bash
 IMG_NAME='Raspbian'
 ```
+
+
+## How the build process works
+
+The following process is followed to build images:
+
+ * Loop through all of the stage directories in alphanumeric order
+
+ * Move on to the next directory if this stage directory contains a file called
+   "SKIP"
+
+ * Run the script ```prerun.sh``` which is generally just used to copy the build
+   directory between stages.
+
+ * In each stage directory loop through each subdirectory and then run each of the
+   install scripts it contains, again in alphanumeric order. These need to be named
+   with a two digit padded number at the beginning.
+   There are a number of different files and directories which can be used to
+   control different parts of the build process:
+
+     - **00-run.sh** - A unix shell script. Needs to be made executable for it to run
+
+     - **00-run-chroot.sh** - A unix shell script which will be run in the chroot
+       of the image build directory. Needs to be made executable for it to run.
+
+     - **00-debconf** - Contents of this file are passed to debconf-set-selections
+       to configure things like locale, etc.
+
+     - **00-packages** - A list of packages to install. Can have more than one, space
+       separated, per line.
+
+     - **00-packages-nr** - As 00-packages, except these will be installed using
+       the ```--no-install-recommends -y``` parameters to apt-get
+
+     - **00-patches** - A directory containing patch files to be applied
+
+  * If the stage directory contains files called "EXPORT_NOOBS" or "EXPORT_IMAGE" then
+    add this stage to a list of images to generate
+
+  * Generate the images for any stages that have specified them
+
+It is recommended to examine build.sh for finer details.
 
 
 ## Docker Build
@@ -204,3 +250,21 @@ sudo ./build.sh  # or ./build-docker.sh
 If you wish to build further configurations upon (for example) the lite
 system, you can also delete the contents of `./stage3` and `./stage4` and
 replace with your own contents in the same format.
+
+
+## Skipping stages to speed up development
+
+If you're working on a specific stage the recommended development process is as
+follows:
+
+ * Add a file called SKIP_IMAGES into the directories containing EXPORT_* files
+   (currently stage2, stage4 and stage5)
+ * Add SKIP files to the stages you don't want to build. For example, if you're
+   basing your image on the lite image you would add these to stages 3, 4 and 5.
+ * Run build.sh to build all stages
+ * Add SKIP files to the earlier successfully built stages
+ * Modify the last stage
+ * Rebuild just the last stage using ```sudo CLEAN=1 ./build.sh```
+ * Once you're happy with the image you can remove the SKIP_IMAGES files and
+   export your image to test
+

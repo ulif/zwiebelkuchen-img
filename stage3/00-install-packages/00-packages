@@ -4,3 +4,6 @@ hostapd
 isc-dhcp-server
 iptables-persistent
 tor
+policykit-1
+gvfs
+rfkill
