@@ -3,12 +3,16 @@ This is a fork of `pi_gen` by [@RPI-Distro](https://github.com/RPi-Distro/pi-gen
 
 # zwiebelkuchen
 
-_Tool used to create an onion-pi image based on raspberrypi.org Raspbian images_
+_Tool for creating an onion-pi image based on raspberrypi.org Raspbian image_
 
 `zwiebelkuchen` is a raspberrypi-3 device acting as a wireless repeater, that
 routes all traffic through `tor`.
 
 It is built for raspberry-3 only and requires an additional wifi-dongle to operate.
+
+Contrary to other popular "tor-pi" solutions, this one does not require an
+ethernet connection and can therefore be used in environments, where you have
+only a wifi connection.
 
 
 ## Building your own
