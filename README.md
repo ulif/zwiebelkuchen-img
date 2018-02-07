@@ -28,8 +28,10 @@ use locally or over ssh is `pi` and the password is `raspberry`.
 
 Build instructions:
 - Install git. `sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get install git`
-- Clone the `rpi_gen` code. `git clone https://github.com/ulif/pi-gen.git`
+- Install needed dependencies (see following chapter)
+- Clone the `zwiebelkuchen-img` code. `git clone https://github.com/ulif/zwiebelkuchen-img.git`
 - Create a file in the current folder named `config`. More about it's contents below.
+  Normally, it will create only the one line: `IMG_NAME='Raspbian'`
 - Run the build script, with sudo or as root.  `sudo ./build.sh` OR
 - if you have `docker` installed,  you can run , as regular user, `./build-docker.sh`
 - Wait ~30 minutes for build to complete.
